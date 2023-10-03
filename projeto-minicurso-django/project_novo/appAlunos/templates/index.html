@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+{% load static %}
+<link rel="stylesheet" href="{% static 'style.css' %}"
+
+
+<body>
+    <header class="note">
+
+        <h1>Alunos</h1>
+    </header>
+    <div class="container">
+        <table id="customers" border="1">
+            <thead>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Sobrenome</th>
+                <th>Curso</th>
+                <th colspan="2" id="mid">Ação</th>
+            </thead>
+            {% for x in mem %}          
+            <tr>
+                <td>{{x.id}}</td>
+                <td>{{x.nome}}</td>
+                <td>{{x.sobrenome}}</td>
+                <td>{{x.curso}}</td>
+                <td>
+                    <a href="update/{{x.id}}"><button id="up">Alterar</button></a>
+                </td>
+                <td>
+                    <a href="delete/{{x.id}}"><button id="del">Excluir</button></a>
+                </td>
+            </tr>
+        {% endfor %}          
+        </table>
+        <br><br>
+        <a href="{% url 'add' %}"><button id="new3">Adicionando aluno</button></a>
+    </div>
+</body>
+
+</html>
